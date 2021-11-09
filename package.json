@@ -1,0 +1,26 @@
+{
+    "name": "helix-tutorial",
+    "private": true,
+    "version": "1.0.0",
+    "description": "Starter project for Adobe Helix Pages",
+    "scripts": {
+        "dev": "hlx up"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/LucaNerlich/helix-tutorial.git"
+    },
+    "author": "Adobe",
+    "license": "Apache License 2.0",
+    "bugs": {
+        "url": "https://github.com/LucaNerlich/helix-tutorial/issues"
+    },
+    "homepage": "https://github.com/LucaNerlich/helix-tutorial#readme",
+    "engines": {
+        "node": ">=14.15.2"
+    },
+    "devDependencies": {
+        "@adobe/helix-cli": "^14.0.6"
+    },
+    "dependencies": {}
+}
