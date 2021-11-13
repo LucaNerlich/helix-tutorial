@@ -1,0 +1,14 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background: #EFEFEF;
+    font-family: 'adobe clean', sans-serif;
+    margin: 0;
+}
+
+/* Utilities */
+.hidden {
+    display: none;
+}
