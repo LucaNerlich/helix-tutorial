@@ -2,54 +2,9 @@ const LIVE_DOMAIN = 'https://www.hlx.live';
 
 export const config = {
     blocks: {
-        header: {
-            location: '/blocks/header/',
-            scripts: 'header.js',
-            styles: 'header.css',
-        },
         '.columns': {
             location: '/blocks/columns/',
             styles: 'columns.css',
-        },
-        '.feature-list': {
-            location: '/blocks/feature-list/',
-            styles: 'feature-list.css',
-        },
-        '.get-started': {
-            location: '/blocks/get-started/',
-            styles: 'get-started.css',
-        },
-        '.z-pattern': {
-            location: '/blocks/z-pattern/',
-            styles: 'z-pattern.css',
-            scripts: 'z-pattern.js',
-        },
-        '.fragment': {
-            location: '/blocks/fragment/',
-            scripts: 'fragment.js',
-        },
-        '.sidekick-generator': {
-            location: '/blocks/sidekick/',
-            scripts: 'generator.js',
-            styles: 'generator.css',
-        },
-        '.service-status': {
-            lazy: true,
-            location: '/blocks/service-status/',
-            scripts: 'service-status.js',
-            styles: 'service-status.css',
-        },
-        'a[href^="https://www.youtube.com"]': {
-            lazy: true,
-            location: '/blocks/embed/',
-            styles: 'youtube.css',
-            scripts: 'youtube.js',
-        },
-        'a[href^="https://gist.github.com"]': {
-            lazy: true,
-            location: '/blocks/embed/',
-            styles: 'gist.css',
-            scripts: 'gist.js',
         },
     },
 };
