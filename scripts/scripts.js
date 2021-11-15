@@ -13,7 +13,7 @@ export function getCurrentDomain(location) {
     const {
         protocol,
         hostname,
-        port
+        port,
     } = location || window.location;
     const domain = `${protocol}//${hostname}`;
     return port ? `${domain}:${port}` : domain;
@@ -22,7 +22,7 @@ export function getCurrentDomain(location) {
 export function setDomain(anchor, currentDomain) {
     const {
         href,
-        textContent
+        textContent,
     } = anchor;
     if (!href.includes(LIVE_DOMAIN)) return href;
     anchor.href = href.replace(LIVE_DOMAIN, currentDomain);
@@ -33,7 +33,7 @@ export function setDomain(anchor, currentDomain) {
 export function setSVG(anchor) {
     const {
         href,
-        textContent
+        textContent,
     } = anchor;
     const ext = textContent.substr(textContent.lastIndexOf('.') + 1);
     if (ext !== 'svg') return;
@@ -49,7 +49,7 @@ export function setSVG(anchor) {
 }
 
 export function forceDownload(anchor) {
-    const {href} = anchor;
+    const { href } = anchor;
     const filename = href.split('/')
         .pop();
     const ext = filename.split('.')[1];
@@ -114,7 +114,7 @@ export function cleanVariations(parent) {
     const variantBlocks = parent.querySelectorAll('[class$="-"]');
     return Array.from(variantBlocks)
         .map((variant) => {
-            const {className} = variant;
+            const { className } = variant;
             const classNameClipped = className.slice(0, -1);
             variant.classList.remove(className);
             const classNames = classNameClipped.split('--');
@@ -194,7 +194,7 @@ export async function loadBlocks(blocks) {
     const onIntersection = (entries, observer) => {
         entries.forEach((entry) => {
             if (entry.isIntersecting) {
-                const {blockSelect} = entry.target.dataset;
+                const { blockSelect } = entry.target.dataset;
                 const blockConf = config.blocks[blockSelect];
                 observer.unobserve(entry.target);
                 loadElement(entry.target, blockConf);
@@ -202,10 +202,10 @@ export async function loadBlocks(blocks) {
         });
     };
 
-    const options = {rootMargin: config.lazyMargin || '1200px 0px'};
+    const options = { rootMargin: config.lazyMargin || '1200px 0px' };
     const observer = new IntersectionObserver(onIntersection, options);
     return Promise.all(blocks.map(async (block) => {
-        const {blockSelect} = block.dataset;
+        const { blockSelect } = block.dataset;
         const blockConf = config.blocks[blockSelect];
         if (blockConf?.lazy) {
             observer.observe(block);
@@ -217,9 +217,9 @@ export async function loadBlocks(blocks) {
 }
 
 function postLCP(blocks, message) {
-    loadBlocks(blocks).then(r => {
+    loadBlocks(blocks).then((r) => {
     });
-    loadStyle('/fonts/fonts.css').then(r => {
+    loadStyle('/fonts/fonts.css').then((r) => {
     });
     window.lcp = window.lcp || {};
     window.lcp[message] = true;

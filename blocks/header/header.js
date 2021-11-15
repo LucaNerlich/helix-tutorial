@@ -1,3 +1,5 @@
+import { getEnv } from '../../utils/env';
+
 class Gnav {
     constructor(body, el) {
         this.el = el;
