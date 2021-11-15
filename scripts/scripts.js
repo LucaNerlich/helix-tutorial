@@ -1,4 +1,6 @@
-const LIVE_DOMAIN = 'https://www.hlx.live';
+// preview -> .page
+// live -> .live
+const LIVE_DOMAIN = "https://main--helix-tutorial--lucanerlich.hlx3.page";
 
 export const config = {
     blocks: {
@@ -24,7 +26,9 @@ export function setDomain(anchor, currentDomain) {
         href,
         textContent,
     } = anchor;
-    if (!href.includes(LIVE_DOMAIN)) return href;
+    if (currentDomain.includes(LIVE_DOMAIN)) {
+        return href;
+    }
     anchor.href = href.replace(LIVE_DOMAIN, currentDomain);
     anchor.textContent = textContent.replace(LIVE_DOMAIN, currentDomain);
     return anchor.href;
@@ -49,7 +53,7 @@ export function setSVG(anchor) {
 }
 
 export function forceDownload(anchor) {
-    const { href } = anchor;
+    const {href} = anchor;
     const filename = href.split('/')
         .pop();
     const ext = filename.split('.')[1];
@@ -114,7 +118,7 @@ export function cleanVariations(parent) {
     const variantBlocks = parent.querySelectorAll('[class$="-"]');
     return Array.from(variantBlocks)
         .map((variant) => {
-            const { className } = variant;
+            const {className} = variant;
             const classNameClipped = className.slice(0, -1);
             variant.classList.remove(className);
             const classNames = classNameClipped.split('--');
@@ -194,7 +198,7 @@ export async function loadBlocks(blocks) {
     const onIntersection = (entries, observer) => {
         entries.forEach((entry) => {
             if (entry.isIntersecting) {
-                const { blockSelect } = entry.target.dataset;
+                const {blockSelect} = entry.target.dataset;
                 const blockConf = config.blocks[blockSelect];
                 observer.unobserve(entry.target);
                 loadElement(entry.target, blockConf);
@@ -202,10 +206,10 @@ export async function loadBlocks(blocks) {
         });
     };
 
-    const options = { rootMargin: config.lazyMargin || '1200px 0px' };
+    const options = {rootMargin: config.lazyMargin || '1200px 0px'};
     const observer = new IntersectionObserver(onIntersection, options);
     return Promise.all(blocks.map(async (block) => {
-        const { blockSelect } = block.dataset;
+        const {blockSelect} = block.dataset;
         const blockConf = config.blocks[blockSelect];
         if (blockConf?.lazy) {
             observer.observe(block);
