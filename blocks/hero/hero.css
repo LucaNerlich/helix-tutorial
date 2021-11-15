@@ -1,16 +1,17 @@
 .hero {
-    background-color: red;
-    grid-template-columns: 4fr 6fr;
-    grid-row-gap: 0;
-    grid-template-areas:
-        "titles picture"
-        "content picture"
-        "notes picture";
+    padding: 2em;
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+.hero > div:first-child {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     margin-bottom: 90px;
 }
 
 .hero h1 {
-    grid-area: titles;
     padding-top: 60px;
     max-width: none;
     min-height: 0;
@@ -20,12 +21,10 @@
 }
 
 .hero p {
-    grid-area: content;
     margin-bottom: 0;
 }
 
 .hero picture img {
-    grid-area: picture;
-    position: relative;
-    max-width: 50%;
+    border-radius: 2px;
+    box-shadow: 0 0 13px -2px #000000;
 }
