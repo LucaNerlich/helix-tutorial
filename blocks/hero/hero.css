@@ -1,0 +1,31 @@
+.hero {
+    background-color: red;
+    grid-template-columns: 4fr 6fr;
+    grid-row-gap: 0;
+    grid-template-areas:
+        "titles picture"
+        "content picture"
+        "notes picture";
+    margin-bottom: 90px;
+}
+
+.hero h1 {
+    grid-area: titles;
+    padding-top: 60px;
+    max-width: none;
+    min-height: 0;
+    margin-bottom: 20px;
+    color: #000;
+    font-weight: 700;
+}
+
+.hero p {
+    grid-area: content;
+    margin-bottom: 0;
+}
+
+.hero picture img {
+    grid-area: picture;
+    position: relative;
+    max-width: 50%;
+}

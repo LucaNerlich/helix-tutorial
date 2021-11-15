@@ -2,9 +2,9 @@ const LIVE_DOMAIN = 'https://www.hlx.live';
 
 export const config = {
     blocks: {
-        '.columns': {
-            location: '/blocks/columns/',
-            styles: 'columns.css',
+        '.hero': {
+            location: '/blocks/hero/',
+            styles: 'hero.css',
         },
     },
 };
